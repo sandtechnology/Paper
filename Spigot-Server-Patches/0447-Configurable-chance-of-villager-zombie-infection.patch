@@ -8,19 +8,21 @@ This allows you to solve an issue in vanilla behavior where:
 * On normal difficulty they will have a 50% of getting infected or dying.
 
 diff --git a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
-index c7cde1d0a0..7ca67a4aa5 100644
+index 746b3f1b..62216eb1 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
-@@ -663,4 +663,9 @@ public class PaperWorldConfig {
+@@ -663,6 +663,11 @@ public class PaperWorldConfig {
      private void nerfNetherPortalPigmen() {
          nerfNetherPortalPigmen = getBoolean("game-mechanics.nerf-pigmen-from-nether-portals", nerfNetherPortalPigmen);
      }
-+
++    
 +    public double zombieVillagerInfectionChance = -1.0;
 +    private void zombieVillagerInfectionChance() {
-+        zombieVillagerInfectionChance = getDouble("zombie-villager-infection-chance", zombieVillagerInfectionChance);
++      zombieVillagerInfectionChance = getDouble("zombie-villager-infection-chance", zombieVillagerInfectionChance);
 +    }
- }
+ 
+     public double trackerUpdateDistance = 1;
+     private void trackerUpdateDistance() {
 diff --git a/src/main/java/net/minecraft/server/EntityZombie.java b/src/main/java/net/minecraft/server/EntityZombie.java
 index 8635d4f40c..07ebc1d816 100644
 --- a/src/main/java/net/minecraft/server/EntityZombie.java
